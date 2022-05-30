@@ -1,0 +1,98 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'base.css' %}">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="nav">
+        Assignment of Manoj Prajapati<br>
+        Make a google form by yourself.
+    </div>
+    <div class="newform">
+        <form action="/newform/" method="post">
+            {% csrf_token %}
+            <input type="submit" value="New form">
+        </form>
+    </div>
+    <div class="box">
+        <div class="main">
+            <form action="/form/" method="post">
+                {% csrf_token %}
+                {% if formname %}
+                Form name -
+                <input type="text" name="formname" value={{formname}} readonly>
+                <br>
+                {% else %}
+                Form name -
+                <input type="text" name="formname">
+                <br>
+                {% endif %}
+                <label>Field Name - </label>
+                <input type="text" name="name" id="name" required>
+                <br>
+                <label>Type -</label>
+                <select name="dropdown" id="dropdown" onchange="handle();" required>
+                    <option value="text">text</option>
+                    <option value="email">Email</option>
+                    <option value="Single select">Single select(gender only)</option>
+                    <option value="number">Number</option>
+                    <option value="Date">Date</option>
+                </select>
+                <br>
+                <div class="options" id="options">
+                    <input type="checkbox" name="options" value="options">
+                    <label for="options"> Options for male and female</label><br>
+                </div>
+                <input type="checkbox" id="mandatory" name="mandatory" value="required">
+                <label for="mandatory"> Mandatory</label><br>
+                <input type="submit" value="Add">
+            </form>
+        </div>
+        {% if formlist %}
+        <div class="table">
+            <table>
+                <tr>
+                    <th>Field Name</th>
+                    <th>Type</th>
+                    <th>Options</th>
+                    <th>Mandatory</th>
+                </tr>
+                {% for i in formlist %}
+                <tr>
+                    {% for j in i %}
+                    <td>{{j}}</td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </table>
+            <form action="{% url 'googleform' %}" method="post">
+                {% csrf_token %}
+                <div class="googleform">Your google form is ready - 
+                    <button>Google Form</button>
+                </div>
+            </form>
+            {% endif %}
+        </div>
+    </div>
+    <script>
+        function handle() {
+            var dropdown = document.getElementById('dropdown').value;
+            var options = document.getElementById('options');
+            if (dropdown === "Single select") {
+                options.style.display = "block";
+            }
+            else{
+                options.style.display = "none";
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+.nav{
+    background-color: blueviolet;
+    color: white;
+    text-align: center;
+    padding: 5px 0px;
+    font-weight: 300px;
+}
+.main{
+    width: 300px;
+    height: 250px;
+    margin-left: 6%;
+    border: solid;
+    padding: 40px 5px 40px 10px;
+    background-color: rgb(229, 240, 240);
+}
+.box{
+    display: flex;
+    margin-top: 50px;
+}
+.main input{
+    margin-bottom: 30px;
+}
+.main select{
+    margin-bottom: 30px;
+}
+.options{
+    display: none;
+}
+input[type=text]{
+    height: 20px;
+    border-radius: 5px;
+}
+select{
+    height: 20px;
+    border-radius: 5px;
+}
+.newform{
+    margin-top: 20px;
+    margin-left: 20px;
+}
+.newform input{
+    background-color: rgb(17, 39, 240);
+    color: white;
+    font-weight: 5px;
+    height: 30px;
+    border-radius: 5px;
+}
+.newform input:hover{
+    box-shadow: 5px 10px 5px rgba(10, 6, 6, 0.048);
+}
+.table{
+    height: auto;
+    width: 500px;
+    border-style: dashed;
+    padding-left: 30px;
+    margin-left: 5px;
+    border: solid;
+    background-color: rgb(244, 244, 86);
+}
+table tr th{
+    border-style: solid;
+    padding-right: 30px;
+}
+.googleform button{
+    margin-top: 40px;
+    border-radius: 5px;
+    color: black;
+    height: 30px;
+    border-color: rgb(77, 236, 14);
+    background-color: rgb(77, 236, 14);
+}
+.googleform button:hover{
+    box-shadow: 5px 10px 5px rgba(10, 6, 6, 0.048);
+}

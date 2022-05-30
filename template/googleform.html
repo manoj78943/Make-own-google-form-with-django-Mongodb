@@ -1,0 +1,44 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'googleform.css'%}">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Google Form</h1>
+    <div class="main">
+        <div class="small">
+            <form action="{% url 'result' %}" method="post">
+                {% csrf_token %}
+                {% for i in formlist %}
+                <h2>{{i.0}}</h2>
+                {% if i.1 == "text" %}
+                <input type="text" name={{i.0}} {{i.3}}>
+                {% elif i.1 == "email" %}
+                <input type="email" name={{i.0}} {{i.3}}>
+                {% elif i.1 == "number" %}
+                <input type="number" name={{i.0}} {{i.3}}>
+                {% elif i.1 == "Date" %}
+                <input type="date" name={{i.0}} {{i.3}}>
+                {% elif i.1 == "Single select" %}
+                <input type="radio" value="boy" name={{i.0}} {{i.3}}>
+                <label>boy</label><br>
+                <input type="radio" value="girl" name={{i.0}} {{i.3}}>
+                <label>girl</label><br>
+                {% endif %}
+                {% endfor %}
+                <br>
+                <br>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
