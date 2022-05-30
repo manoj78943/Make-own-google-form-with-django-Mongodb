@@ -77,18 +77,6 @@ WSGI_APPLICATION = 'formm.wsgi.application'
 
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'djongo',
-#         'NAME': 'Assignment',
-#         'CLIENT': {
-#             "host":'mongodb+srv://manoj:123@cluster0.efvz2uv.mongodb.net/?retryWrites=true&w=majority',
-#                 'username':'manoj',
-#                 'password':'123',
-#         }
-#     }
-# }
-
-# DATABASES = {
-#     'default': {
 #         'ENGINE': 'django.db.backends.sqlite3',
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }

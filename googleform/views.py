@@ -1,8 +1,8 @@
-from glob import glob
-from unicodedata import name
 from django.shortcuts import redirect, render
 import pymongo
-client = pymongo.MongoClient('mongodb+srv://manoj:123@cluster0.efvz2uv.mongodb.net/?retryWrites=true&w=majority')
+
+# I have hide the password
+client = pymongo.MongoClient('mongodb+srv://manoj:*****@cluster0.efvz2uv.mongodb.net/?retryWrites=true&w=majority')
 db = client['Dbgoogleform']
 col = db['collectionform']
 
@@ -14,8 +14,6 @@ def base(request):
     global formlist,formname
     formlist = []
     formname = ""
-    a =[2,3,[4,5,6],[5,76,8,89]]
-    print(len(a))
     return render(request,"base.html",{'formlist':formlist})
 
 def newform(request):
